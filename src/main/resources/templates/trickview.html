@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Tricks</title>
+</head>
+<body>
+<form method="post" th:action="@{/addTricks}"><select name="trick">
+  <option  th:each="trick : ${tricksToLearn}" th:value="${trick}" th:text="${trick}"/>
+</select>
+  <button th:type="submit">submit</button>
+</form>
+<a th:href="@{/tamagotchi}">back</a>
+</body>
+</html>

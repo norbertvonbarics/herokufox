@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li>
+    <a th:href="@{/tamagotchi}">
+      Information
+    </a>
+  </li>
+</ul>
+<img src="/greenfox.png" alt="greenfoxlogo"/>
+<ul>
+  <li><a th:href="@{/nutritionStore}">Nutrition </a></li>
+  <li><a th:href="@{/trickview}">
+    Tricks
+  </a></li>
+</ul>
+
+<p th:text="'This is ' + ${name} + '. Currently living on ' + ${food} + ' and ' + ${drink} + '. He knows ' + ${trickSize} + ' tricks!'"> introduction </p>
+<h1>
+  Known tricks
+</h1>
+<div th:if="${trickSize == 0}">
+  <p th:text="${name} + ' does not know any trick yet. Go and teach some'"/>
+</div>
+<ul th:unless="${trickSize == 0}" th:each="trick : ${tricks}">
+  <li th:text="${trick}"></li>
+</ul>
+</body>
+</html>
